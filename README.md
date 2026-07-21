@@ -42,6 +42,13 @@ La conclusión es robusta: **la señal estructural es prácticamente inerte** (s
 intervalo de confianza incluye el piso de prevalencia), mientras que **la semántica de
 la descripción sí discrimina la criticidad** por encima del azar.
 
+Esta señal **no es un artefacto de fuga de información**. Una **prueba de permutación**
+(200 reordenamientos aleatorios de las etiquetas) sitúa el AUC-PR observado muy por
+encima de la distribución nula (**p = 0,005**), y un test de **anti-circularidad**
+confirma que el modelo no está leyendo la etiqueta: de los 11 tickets a los que asigna
+mayor confianza, solo **5 son críticos reales** (un modelo que copiara la respuesta
+acertaría casi todos).
+
 El **mismo patrón se repite en el eje de urgencia** (T2, tipo de trabajo), medido con
 **F1 macro** sobre las cuatro clases:
 
@@ -73,8 +80,25 @@ El **producto full-semántico** (T1 y T2 leídos ambos del texto con BETO) alcan
 **Nota de honestidad estadística.** El desempeño absoluto es alto, pero el régimen
 muestral es pequeño (11 críticos en test). Por eso el proyecto declara explícitamente
 sus límites de potencia: el efecto que aísla la contribución de la severidad no es
-concluyente por tamaño de muestra, no por el modelo. El cuaderno documenta este punto
-sin sobrevender el resultado.
+concluyente por tamaño de muestra, no por el modelo (se estima que confirmarlo exigiría del orden de **32 críticos** en
+test, unas 2,9 veces los actuales). El cuaderno documenta este punto sin sobrevender el
+resultado.
+
+## El asistente de dos capas
+
+El producto del proyecto es un asistente de dos capas:
+
+- **Capa 1 — triaje automático (validado)**: codifica la descripción con BETO y produce
+  la prioridad ordinal y el ranking Top-K. Es la capa que reporta y reproduce este
+  repositorio.
+- **Capa 2 — asistencia generativa (prototipo, no validado)**: sobre el ticket
+  priorizado, un modelo de lenguaje local propone una hipótesis de causa raíz y una
+  mitigación a partir de casos históricos similares. Se mantiene como prototipo bajo
+  supervisión humana: en la evaluación ciega no alcanzó la utilidad mínima en el estrato
+  de tickets críticos (**2,92 sobre 3,0**), por lo que no se despliega.
+
+El operador decide siempre; el asistente **ordena y sugiere, no reemplaza el juicio
+humano**.
 
 ## Cómo reproducir
 
