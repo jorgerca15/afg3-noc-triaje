@@ -1,0 +1,59 @@
+{
+  "fase": "AFG III · producto con T2 SEMÁNTICO (opción A, complemento del producto oficial)",
+  "confiabilidad": {
+    "t2_procedencia": "post-t=0 (etiqueta legítima a predecir), reports/_handoff_eda_v3.md",
+    "no_circular": "precisión Emergencia del texto ~0,26 en afg3_escalera_t2.json (lejos de 1,0)",
+    "sanity_estructural_reproduce_canon": true,
+    "producto_oficial_intacto": "afg3_producto_v3clean.json y pred_t2_v3clean.npy NO modificados"
+  },
+  "t2_headline": "beto (coherente con T1; familia de texto indistinguible por IC en la escalera de T2)",
+  "comparacion_por_t2": {
+    "estructural": {
+      "ndcg_beto": 0.6585,
+      "recall_beto": 0.8333,
+      "ndcg_dummy": 0.6151,
+      "delta_ndcg_beto_menos_dummy": 0.0434
+    },
+    "tfidf": {
+      "ndcg_beto": 0.8951,
+      "recall_beto": 1.0,
+      "ndcg_dummy": 0.7756,
+      "delta_ndcg_beto_menos_dummy": 0.1195
+    },
+    "beto": {
+      "ndcg_beto": 0.8736,
+      "recall_beto": 1.0,
+      "ndcg_dummy": 0.7709,
+      "delta_ndcg_beto_menos_dummy": 0.1027
+    },
+    "e5": {
+      "ndcg_beto": 0.8931,
+      "recall_beto": 1.0,
+      "ndcg_dummy": 0.8121,
+      "delta_ndcg_beto_menos_dummy": 0.081
+    }
+  },
+  "checkpoint_beto_vs_dummy_con_t2beto": {
+    "ndcg_beto": 0.8736,
+    "ndcg_dummy": 0.7709,
+    "recall_beto": 1.0,
+    "delta_mean": 0.0872,
+    "delta_ic95": [
+      -0.0153,
+      0.1918
+    ],
+    "delta_ic_excluye_0": false,
+    "p_unilateral_beto_mejor": 0.0545,
+    "n_boot": 2000
+  },
+  "comparacion_headline": {
+    "producto_oficial_t2_estructural": {
+      "ndcg": 0.6585,
+      "recall": 0.8333
+    },
+    "producto_t2_semantico_beto": {
+      "ndcg": 0.8736,
+      "recall": 1.0
+    }
+  }
+}

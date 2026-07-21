@@ -1,0 +1,38 @@
+{
+    "CANON_V3CLEAN": {
+        "inputs": {
+            "data/processed/noc-tickets_clean_v2.csv": "831ea9f2e917983d533b70edbf1ff9b54365d7d48b2df8030e84d83d7dca4336"
+        },
+        "outputs": {
+            "data/processed/embeddings/emb_beto_meanpool_v3clean_test.npy": "1121b9ee43a25b411a9c51b34d714ee6ce0ec7bccb476eb9bf06cb7f104bd849",
+            "data/processed/embeddings/emb_beto_meanpool_v3clean_train.npy": "c8944252af8f5fe20cb73323d45a3588ae530ce4e32e4a844a2e86df5dc1e30d",
+            "data/processed/embeddings/emb_e5_multilingual_v3clean_test.npy": "c667b3431cc49b6e0c47cddf9e511126f8bbc73feb4c1f7e8c6892afd9c087ac",
+            "data/processed/embeddings/emb_e5_multilingual_v3clean_train.npy": "b88ab51b2f9d2b60efab7b2e944742f16657684329cb92da5f9b2b4037ed217a",
+            "data/processed/embeddings/emb_minilm_multilingual_v3clean_test.npy": "1591426ca11b9d5eca8729115e16b642357bfa56408bd5904ff88a653a00f025",
+            "data/processed/embeddings/emb_minilm_multilingual_v3clean_train.npy": "18829d513ad30b36dda37dcec8a5f0ac7b24fec0628aff7cc6bdc8f9eaf83232",
+            "data/processed/predicciones/pred_t2_v3clean.npy": "6d83f2490db1a45775449c94f788a75d292ce86ab7ec9d67da735340fe5a0137",
+            "data/processed/predicciones/proba_t1_emb_beto_meanpool_lr_v3clean.npy": "1ec1f1302296f224574076eed298750ef5b8d3cec95ed50b1dbfb4f42f88d15b",
+            "data/processed/predicciones/proba_t1_emb_e5_multilingual_lr_v3clean.npy": "22a212d23fefe52665bc38ee40477fb4453025aa3ac86bca84d8426bd8fd263b",
+            "data/processed/predicciones/proba_t1_emb_minilm_multilingual_lr_v3clean.npy": "7cc24a59504974936b5dee5c6c0c3dc0f50ac9dea44c02c8aada86516fc7281e",
+            "data/processed/predicciones/proba_t1_rf_estructural_v3clean.npy": "8862241d9f88ebb53630f0c200c6774ea81d5a5a535db64b8996dcec9b2cd6d3",
+            "data/processed/predicciones/proba_t1_tfidf_lr_v3clean.npy": "86b7f0fcf664950739e242992766db540a94581300e8fc68a168b81a1b90224d",
+            "outputs/afg3_gate_primario.json": "7b1a313bc2a3631cc5700c655b8510acf39ff1cb726ba2ae5fe15b4af509fd81",
+            "outputs/afg3_gate_robustez.json": "5f26170d844a6b21d1f0a0fd25ce77937f7f5a02982396e07b40edcd8e128559",
+            "outputs/afg3_escalera_v3clean.json": "1ba6b67a9f53e5e84efef1d9e7d62c9f5ba3ad878cd7540ffa53f6305ea196cc",
+            "outputs/afg3_producto_v3clean.json": "1b288da9db916aaf83e402ea044922198d5b3f1947c2293b089b03b6b5f0d8c9"
+        }
+    },
+    "VALIDACION_V3CLEAN": {
+        "inputs": {
+            "outputs/afg3_escalera_v3clean.json": "1ba6b67a9f53e5e84efef1d9e7d62c9f5ba3ad878cd7540ffa53f6305ea196cc",
+            "outputs/afg3_producto_v3clean.json": "1b288da9db916aaf83e402ea044922198d5b3f1947c2293b089b03b6b5f0d8c9",
+            "data/processed/embeddings/emb_beto_meanpool_v3clean_train.npy": "c8944252af8f5fe20cb73323d45a3588ae530ce4e32e4a844a2e86df5dc1e30d",
+            "data/processed/embeddings/emb_beto_meanpool_v3clean_test.npy": "1121b9ee43a25b411a9c51b34d714ee6ce0ec7bccb476eb9bf06cb7f104bd849",
+            "data/processed/predicciones/proba_t1_emb_beto_meanpool_lr_v3clean.npy": "1ec1f1302296f224574076eed298750ef5b8d3cec95ed50b1dbfb4f42f88d15b",
+            "data/processed/predicciones/pred_t2_v3clean.npy": "6d83f2490db1a45775449c94f788a75d292ce86ab7ec9d67da735340fe5a0137"
+        },
+        "outputs": {
+            "outputs/afg3_validacion_v3clean.json": "46c8ce34d5fb605d8f6791aec2ffb69345143799bbaae71171d6a36aeb948298"
+        }
+    }
+}

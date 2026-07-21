@@ -1,0 +1,167 @@
+{
+  "fase": "AFG III · rebuild Fase 1 — escalera canónica v3clean + perfil productivo",
+  "tesis": "estructural inerte; la semántica de la descripción t=0 supera el piso de forma robusta",
+  "productivo": "beto_meanpool",
+  "framing_productivo": "familia semántica indistinguible internamente (IC solapan); BETO recomendado por punto+dominio español, NO por dominar a e5 (lógica RAMA B)",
+  "piso_prevalencia": 0.0466,
+  "split": {
+    "n_train": [
+      352,
+      345
+    ],
+    "n_test": 236,
+    "criticos_test": 11
+  },
+  "escalera": {
+    "rf_estructural": {
+      "modelo": "N1 RF estructural",
+      "best_params": {
+        "n_estimators": 429,
+        "max_depth": 7,
+        "min_samples_leaf": 10,
+        "max_features": "sqrt"
+      },
+      "cv_aucpr": 0.261,
+      "auc_pr": 0.0713,
+      "piso_prevalencia": 0.0466,
+      "auc_pr_ic95": [
+        0.0222,
+        0.2765
+      ],
+      "delta_vs_piso_mean": 0.0486,
+      "delta_vs_piso_ic95": [
+        -0.0115,
+        0.2305
+      ],
+      "delta_ic_excluye_0_por_arriba": false,
+      "p_unilateral_RF_no_supera_piso": 0.2285,
+      "n_replicas_validas": 2000,
+      "n_boot": 2000
+    },
+    "tfidf_lr": {
+      "modelo": "N2 TF-IDF + LR",
+      "best_params": {
+        "ngram": "12",
+        "C": 0.6203312414676464
+      },
+      "cv_aucpr": 0.2578,
+      "auc_pr": 0.1662,
+      "piso_prevalencia": 0.0466,
+      "auc_pr_ic95": [
+        0.0583,
+        0.4282
+      ],
+      "delta_vs_piso_mean": 0.1566,
+      "delta_vs_piso_ic95": [
+        0.0236,
+        0.376
+      ],
+      "delta_ic_excluye_0_por_arriba": true,
+      "p_unilateral_RF_no_supera_piso": 0.0,
+      "n_replicas_validas": 2000,
+      "n_boot": 2000
+    },
+    "emb_beto_meanpool_lr": {
+      "modelo": "N3 beto_meanpool + LR",
+      "best_params": {
+        "C": 0.0022910272263036873
+      },
+      "cv_aucpr": 0.2888,
+      "auc_pr": 0.4275,
+      "piso_prevalencia": 0.0466,
+      "auc_pr_ic95": [
+        0.1582,
+        0.7388
+      ],
+      "delta_vs_piso_mean": 0.4082,
+      "delta_vs_piso_ic95": [
+        0.1241,
+        0.6955
+      ],
+      "delta_ic_excluye_0_por_arriba": true,
+      "p_unilateral_RF_no_supera_piso": 0.0,
+      "n_replicas_validas": 2000,
+      "n_boot": 2000,
+      "calibracion": {
+        "raw": {
+          "ece": 0.3192,
+          "brier": 0.1581,
+          "bss": -2.5578
+        },
+        "isotonica": {
+          "ece": 0.1175,
+          "brier": 0.0564,
+          "bss": -0.2692
+        },
+        "platt": {
+          "ece": 0.117,
+          "brier": 0.054,
+          "bss": -0.2152
+        },
+        "brier_ref_no_skill": 0.0444
+      }
+    },
+    "emb_e5_multilingual_lr": {
+      "modelo": "N3 e5_multilingual + LR",
+      "best_params": {
+        "C": 97.38433115217204
+      },
+      "cv_aucpr": 0.2848,
+      "auc_pr": 0.2507,
+      "piso_prevalencia": 0.0466,
+      "auc_pr_ic95": [
+        0.0756,
+        0.5139
+      ],
+      "delta_vs_piso_mean": 0.2229,
+      "delta_vs_piso_ic95": [
+        0.0412,
+        0.4673
+      ],
+      "delta_ic_excluye_0_por_arriba": true,
+      "p_unilateral_RF_no_supera_piso": 0.0,
+      "n_replicas_validas": 2000,
+      "n_boot": 2000,
+      "calibracion": {
+        "raw": {
+          "ece": 0.2765,
+          "brier": 0.2564,
+          "bss": -4.7699
+        },
+        "isotonica": {
+          "ece": 0.1092,
+          "brier": 0.0556,
+          "bss": -0.2512
+        },
+        "platt": {
+          "ece": 0.1197,
+          "brier": 0.0567,
+          "bss": -0.2759
+        },
+        "brier_ref_no_skill": 0.0444
+      }
+    },
+    "emb_minilm_multilingual_lr": {
+      "modelo": "N3 minilm_multilingual + LR",
+      "best_params": {
+        "C": 0.004604218137034904
+      },
+      "cv_aucpr": 0.2676,
+      "auc_pr": 0.1955,
+      "piso_prevalencia": 0.0466,
+      "auc_pr_ic95": [
+        0.049,
+        0.4762
+      ],
+      "delta_vs_piso_mean": 0.1842,
+      "delta_vs_piso_ic95": [
+        0.0165,
+        0.4305
+      ],
+      "delta_ic_excluye_0_por_arriba": true,
+      "p_unilateral_RF_no_supera_piso": 0.0,
+      "n_replicas_validas": 2000,
+      "n_boot": 2000
+    }
+  }
+}

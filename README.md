@@ -1,2 +1,104 @@
-# afg3-noc-triaje
-MCD - Proyecto Final AFG III - UC Chile
+# Asistente de triaje de tickets NOC basado en modelos de lenguaje
+
+Pipeline reproducible para clasificar y **priorizar tickets de un Centro de Operación
+de Red (NOC)** en el momento de apertura (`t = 0`), combinando una señal de
+**severidad** y una de **urgencia** en un ranking operativo.
+
+La pregunta central del proyecto es empírica: **¿la información que permite anticipar
+la criticidad de un incidente vive en las variables estructuradas del ticket
+(distrito, conteos, banderas) o en el texto libre de la descripción?** Todo se evalúa
+únicamente con lo disponible al abrir el ticket, sin usar campos que se completan
+durante o después de la atención (cero fuga temporal).
+
+## Qué resuelve
+
+El NOC prioriza combinando dos ejes, ambos leídos del ticket en `t = 0`:
+
+- **T1 — Severidad**: clasificación binaria `Crítico / Leve`.
+- **T2 — Urgencia**: tipo de trabajo (`Correctivo`, `Preventivo`, `Emergencia`,
+  `Incidente`).
+
+Ambos ejes se fusionan en una **matriz de prioridad ordinal** de cuatro niveles y el
+sistema entrega un **ranking Top-K** por ventanas de 7 días. La calidad del ranking se
+mide con **NDCG@5** (métrica primaria, graduada sobre los cuatro niveles) y
+**Recall@5** sobre los incidentes de máxima prioridad (descriptiva).
+
+## Resultado principal
+
+Sobre una partición **temporal pura 60/40** (con embargo del lado de entrenamiento
+para cerrar la maduración de etiqueta) y un conjunto de test con 11 incidentes
+críticos observados:
+
+| Señal en `t = 0`                         | Discriminación (AUC-PR) |
+|------------------------------------------|:-----------------------:|
+| Piso de no-skill (prevalencia en test)   | 0,047                   |
+| Estructural (Random Forest)              | 0,071                   |
+| Texto — TF-IDF                           | 0,166                   |
+| Texto — MiniLM multilingüe               | 0,196                   |
+| Texto — e5 multilingüe                   | 0,251                   |
+| Texto — BETO (BERT en español)           | **0,427**               |
+
+La conclusión es robusta: **la señal estructural es prácticamente inerte** (su
+intervalo de confianza incluye el piso de prevalencia), mientras que **la semántica de
+la descripción sí discrimina la criticidad** por encima del azar.
+
+El **producto full-semántico** (T1 y T2 leídos ambos del texto con BETO) alcanza:
+
+- **NDCG@5 = 0,874**
+- **Recall@5 (nivel máximo) = 1,0** — los 11/11 incidentes críticos quedan en el Top-5,
+  sin falsos negativos.
+
+**Nota de honestidad estadística.** El desempeño absoluto es alto, pero el régimen
+muestral es pequeño (11 críticos en test). Por eso el proyecto declara explícitamente
+sus límites de potencia: el efecto que aísla la contribución de la severidad no es
+concluyente por tamaño de muestra, no por el modelo. El cuaderno documenta este punto
+sin sobrevender el resultado.
+
+## Cómo reproducir
+
+Requisitos: Python 3.10+.
+
+```bash
+# 1. Crear entorno e instalar dependencias
+python -m venv venv
+source venv/bin/activate        # en Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+# 2. Abrir el cuaderno y ejecutarlo de principio a fin
+jupyter notebook notebooks/pipeline_canonico.ipynb
+```
+
+De forma no interactiva:
+
+```bash
+jupyter nbconvert --to notebook --execute notebooks/pipeline_canonico.ipynb --inplace
+```
+
+El cuaderno es un **visor reproducible**: reconstruye en vivo el split temporal, las
+features y la matriz de prioridad a partir del dataset incluido, y lee los artefactos
+de resultados precomputados (`outputs/*.json`). No reentrena los modelos de embeddings.
+Como autochequeo, recomputa el **SHA256** de cada artefacto canónico y lo compara
+contra el manifest, de modo que cualquier divergencia bit a bit se detecta al ejecutar.
+
+## Estructura del repositorio
+
+```
+afg3-noc-triaje/
+├── notebooks/
+│   └── pipeline_canonico.ipynb      # cuaderno principal (visor reproducible end-to-end)
+├── src/                             # utilidades reusables (métricas, calibración, split, PII)
+├── scripts/                         # loaders del split temporal y baselines estructurales
+├── outputs/                         # artefactos de resultados (JSON) + manifest SHA256
+├── data/processed/                  # dataset pseudonimizado + embeddings y predicciones
+├── requirements.txt
+└── README.md
+```
+
+## Sobre los datos
+
+El dataset de tickets se distribuye **pseudonimizado**: los identificadores de cliente,
+distrito, nodo y ticket se sustituyen por tokens categóricos estériles
+(`<CLIENT_XX>`, `DIST_XXX`, `TCK_XXXXXXXXXX`) antes de versionarse. No contiene
+información personal ni identificable. El repositorio incluye además una capa de
+gobernanza de PII para el texto libre, pensada como filtro de entrada para un
+despliegue futuro.

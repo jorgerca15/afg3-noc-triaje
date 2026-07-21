@@ -1,0 +1,49 @@
+{
+  "version": "v2",
+  "fecha_generacion": "2026-05-09T20:30:57.858967",
+  "origen": {
+    "raw": "data/raw/noc-tickets.csv",
+    "clean_v1": "data/processed/noc-tickets_clean_v1.csv"
+  },
+  "shape": {
+    "n_filas": 588,
+    "n_columnas": 22
+  },
+  "transformaciones": [
+    "Reconstruir miss_tipo_producto desde df_raw['Tipo de producto_final'].isna()",
+    "Reconstruir miss_operador_orig desde df_v1['Operador_orig_final'].isna()",
+    "Crear miss_cantidad_clientes (copia explícita de missing_Cantidad de clientes afectados_final)",
+    "Reconstruir miss_tipo_cliente desde df_raw['tipo_cliente_final'].isna()",
+    "(NO se persiste clientes_faltante_flag ni tipo_trabajo_agrupado: el notebook los crea internamente)"
+  ],
+  "flags_reconstruidos": [
+    {
+      "nombre": "miss_tipo_producto",
+      "n_unos": 95,
+      "varianza": 0.1357,
+      "r_pointbiserial_criticidad": 0.429,
+      "chi2_tipo_trabajo": 51.14
+    },
+    {
+      "nombre": "miss_operador_orig",
+      "n_unos": 245,
+      "varianza": 0.2435,
+      "r_pointbiserial_criticidad": -0.274,
+      "chi2_tipo_trabajo": 235.9
+    },
+    {
+      "nombre": "miss_cantidad_clientes",
+      "n_unos": 319,
+      "varianza": 0.2486,
+      "r_pointbiserial_criticidad": 0.21,
+      "chi2_tipo_trabajo": 122.33
+    },
+    {
+      "nombre": "miss_tipo_cliente",
+      "n_unos": 42,
+      "varianza": 0.0664,
+      "r_pointbiserial_criticidad": -0.06,
+      "chi2_tipo_trabajo": 23.38
+    }
+  ]
+}

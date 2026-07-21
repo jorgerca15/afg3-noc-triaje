@@ -1,0 +1,17 @@
+# Núcleo de datos y modelado clásico
+pandas
+numpy
+scipy
+scikit-learn
+
+# Visualización
+matplotlib
+seaborn
+
+# Optimización de hiperparámetros (usada por el módulo de baselines estructurales)
+optuna
+
+# Ejecución del notebook
+jupyter
+ipykernel
+nbconvert

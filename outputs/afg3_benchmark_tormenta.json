@@ -1,0 +1,74 @@
+{
+  "fase": "AFG III · benchmark de tormenta (latencia P99 empírica)",
+  "servido": "despliegue local base (1 proceso, batch=1 por-ticket); producción usaría ONNX/TorchServe",
+  "limite_p99_noc_ms": 2000.0,
+  "nota_gil": "ThreadPool no paraleliza CPU-bound de Transformers (GIL); ProcessPool multiplica RSS. La métrica del modelo es la latencia por-ticket secuencial, no un fan-out de threads.",
+  "n_tickets": 236,
+  "resultados": {
+    "N0 · Reglas": {
+      "nivel": "N0",
+      "p50": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "p999": 0.0,
+      "media": 0.0,
+      "n": 236,
+      "throughput_tps_batched": null,
+      "rss_delta_mb": 0.0,
+      "p99_ms": 0.0,
+      "cumple_sla_2s": true
+    },
+    "N1 · Random Forest": {
+      "nivel": "N1",
+      "p50": 2.12,
+      "p95": 2.31,
+      "p99": 2.36,
+      "p999": 2.66,
+      "media": 2.13,
+      "n": 236,
+      "throughput_tps_batched": null,
+      "rss_delta_mb": 0.1,
+      "p99_ms": 2.36,
+      "cumple_sla_2s": true
+    },
+    "N2 · MiniLM+LR": {
+      "nivel": "N2",
+      "p50": 7.84,
+      "p95": 33.98,
+      "p99": 35.84,
+      "p999": 38.26,
+      "media": 13.03,
+      "n": 236,
+      "throughput_tps_batched": 326.1,
+      "rss_delta_mb": 316.8,
+      "p99_ms": 35.84,
+      "cumple_sla_2s": true
+    },
+    "N3 · BETO+LR": {
+      "nivel": "N3",
+      "p50": 12.82,
+      "p95": 17.22,
+      "p99": 21.49,
+      "p999": 29.75,
+      "media": 13.42,
+      "n": 236,
+      "throughput_tps_batched": 109.1,
+      "rss_delta_mb": 454.5,
+      "p99_ms": 21.49,
+      "cumple_sla_2s": true
+    },
+    "N3 · e5+LR": {
+      "nivel": "N3",
+      "p50": 11.96,
+      "p95": 56.5,
+      "p99": 110.92,
+      "p999": 165.39,
+      "media": 21.07,
+      "n": 236,
+      "throughput_tps_batched": 136.2,
+      "rss_delta_mb": 122.5,
+      "p99_ms": 110.92,
+      "cumple_sla_2s": true
+    }
+  }
+}

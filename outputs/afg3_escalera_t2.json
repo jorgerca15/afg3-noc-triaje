@@ -1,0 +1,157 @@
+{
+  "fase": "AFG III · escalera de T2 (tipo de trabajo) sobre split v3clean",
+  "pregunta": "¿la semántica de la descripción t=0 mejora la urgencia (T2), como lo hace con la severidad (T1)?",
+  "metrica_primaria": "F1 macro (4 clases)",
+  "foco_operativo": "Emergencia (clase 2): define el nivel 3 de la matriz de prioridad",
+  "nota_producto": "El producto v3clean usa el T2 estructural (n1_producto). Esta escalera es DIAGNÓSTICA: no cambia el producto ni pred_t2_v3clean.npy.",
+  "split": {
+    "n_train": [
+      352,
+      345
+    ],
+    "n_test": 236
+  },
+  "dist_test": {
+    "Correctivo": 84,
+    "Preventivo": 86,
+    "Emergencia": 30,
+    "Incidente": 36
+  },
+  "niveles": {
+    "n0_dummy": {
+      "nivel": "N0",
+      "modelo": "N0 Dummy (mayoritaria)",
+      "f1_macro": 0.1313,
+      "f1_macro_ic95": [
+        0.1131,
+        0.1467
+      ],
+      "accuracy": 0.3559,
+      "emergencia": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "n1_producto": {
+      "nivel": "N1",
+      "modelo": "N1 RF estructural (producto)",
+      "f1_macro": 0.242,
+      "f1_macro_ic95": [
+        0.195,
+        0.2921
+      ],
+      "accuracy": 0.2924,
+      "emergencia": {
+        "precision": 0.1308,
+        "recall": 0.5667,
+        "f1": 0.2125
+      },
+      "best_params": {
+        "n_estimators": 300,
+        "max_depth": 8,
+        "class_weight": "balanced",
+        "nota": "params EXACTOS del producto v3clean (ancla, no tuneado)"
+      }
+    },
+    "n1_estructural_tuneado": {
+      "nivel": "N1t",
+      "modelo": "N1 RF estructural (tuneado)",
+      "f1_macro": 0.2535,
+      "f1_macro_ic95": [
+        0.2,
+        0.3097
+      ],
+      "accuracy": 0.2924,
+      "emergencia": {
+        "precision": 0.1223,
+        "recall": 0.5667,
+        "f1": 0.2012
+      },
+      "best_params": {
+        "n_estimators": 343,
+        "max_depth": 4,
+        "min_samples_leaf": 1,
+        "max_features": "log2"
+      },
+      "cv_f1_macro": 0.3887
+    },
+    "n2_tfidf_lr": {
+      "nivel": "N2",
+      "modelo": "N2 TF-IDF + LR",
+      "f1_macro": 0.4642,
+      "f1_macro_ic95": [
+        0.4197,
+        0.506
+      ],
+      "accuracy": 0.6059,
+      "emergencia": {
+        "precision": 0.2577,
+        "recall": 0.8333,
+        "f1": 0.3937
+      },
+      "best_params": {
+        "C": 0.3725393839578886,
+        "ngram": "11"
+      },
+      "cv_f1_macro": 0.4318
+    },
+    "n3_emb_beto_meanpool_lr": {
+      "nivel": "N3",
+      "modelo": "N3 beto_meanpool + LR",
+      "f1_macro": 0.4281,
+      "f1_macro_ic95": [
+        0.3837,
+        0.4708
+      ],
+      "accuracy": 0.5678,
+      "emergencia": {
+        "precision": 0.2644,
+        "recall": 0.7667,
+        "f1": 0.3932
+      },
+      "best_params": {
+        "C": 0.016157805435629637
+      },
+      "cv_f1_macro": 0.4484
+    },
+    "n3_emb_e5_multilingual_lr": {
+      "nivel": "N3",
+      "modelo": "N3 e5_multilingual + LR",
+      "f1_macro": 0.4387,
+      "f1_macro_ic95": [
+        0.3953,
+        0.4799
+      ],
+      "accuracy": 0.5805,
+      "emergencia": {
+        "precision": 0.2475,
+        "recall": 0.8333,
+        "f1": 0.3817
+      },
+      "best_params": {
+        "C": 4.805215917637432
+      },
+      "cv_f1_macro": 0.4575
+    },
+    "n3_emb_minilm_multilingual_lr": {
+      "nivel": "N3",
+      "modelo": "N3 minilm_multilingual + LR",
+      "f1_macro": 0.4024,
+      "f1_macro_ic95": [
+        0.3545,
+        0.4493
+      ],
+      "accuracy": 0.5424,
+      "emergencia": {
+        "precision": 0.234,
+        "recall": 0.7333,
+        "f1": 0.3548
+      },
+      "best_params": {
+        "C": 0.12522276284580391
+      },
+      "cv_f1_macro": 0.4097
+    }
+  }
+}

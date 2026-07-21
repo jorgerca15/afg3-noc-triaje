@@ -1,0 +1,1152 @@
+{
+  "fase": "AFG III · validación v3clean (cierra compromisos del deck 38 slides, 22-jun)",
+  "split": {
+    "n_train": [
+      352,
+      345
+    ],
+    "n_test": 236,
+    "criticos_test": 11,
+    "gap_dias": 7
+  },
+  "modo_smoke": false,
+  "permutacion": {
+    "aucpr_real": 0.4275,
+    "media_nulas": 0.0888,
+    "max_nulas": 0.4209,
+    "n_permutaciones": 200,
+    "k_alcanzan_real": 0,
+    "p_valor": 0.005,
+    "p_formula": "p = (k_alcanzan + 1) / (n_permutaciones + 1)",
+    "nota_errata_deck": "Valor canónico p=0,005 (0/200). La slide S23 del deck decía 'p~=0,020', inconsistente con su propio 'ninguna baraja iguala al modelo real'; queda registrado como errata del deck.",
+    "hist_frecuencias": [
+      74,
+      41,
+      25,
+      12,
+      11,
+      10,
+      7,
+      3,
+      5,
+      3,
+      4,
+      2,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "hist_bordes": [
+      0.0288,
+      0.0506,
+      0.0724,
+      0.0942,
+      0.116,
+      0.1377,
+      0.1595,
+      0.1813,
+      0.2031,
+      0.2249,
+      0.2467,
+      0.2684,
+      0.2902,
+      0.312,
+      0.3338,
+      0.3556,
+      0.3774,
+      0.3991,
+      0.4209
+    ]
+  },
+  "anti_circularidad": {
+    "topk_confianza": {
+      "top_5": {
+        "criticos_reales": 3,
+        "K": 5,
+        "precision": 0.6
+      },
+      "top_8": {
+        "criticos_reales": 4,
+        "K": 8,
+        "precision": 0.5
+      },
+      "top_11": {
+        "criticos_reales": 5,
+        "K": 11,
+        "precision": 0.455
+      }
+    },
+    "lectura": "compromiso del deck S23: 'entre los 11 de máxima confianza, 5 son críticos reales' -> ver top_11.criticos_reales",
+    "terminos_criticos_top12": [
+      "corte de",
+      "corte",
+      "estado",
+      "de address",
+      "servicio vertical",
+      "de",
+      "cto sin",
+      "rotura de",
+      "cto",
+      "fibra optica",
+      "en mal",
+      "mal estado"
+    ],
+    "terminos_leves_top8": [
+      "auditoria",
+      "normalizacion",
+      "auditoria en",
+      "troncal_te789ab9840",
+      "el",
+      "address address",
+      "en dist_001",
+      "grupo electrogeno"
+    ]
+  },
+  "potencia": {
+    "delta_ndcg_observado": 0.0782,
+    "se_actual": 0.0523,
+    "se_objetivo_80pct": 0.0279,
+    "n_criticos_actual": 11,
+    "n_criticos_requerido": 39,
+    "factor": 3.5,
+    "formula": "n_req = n_actual * (SE_actual / SE_objetivo)^2 ; SE_objetivo = |Δ| / (z_0.975 + z_0.80)",
+    "supuestos": [
+      "efecto real = Δ observado",
+      "SE ∝ 1/sqrt(N críticos)",
+      "α=0,05 bilateral",
+      "potencia 0,80"
+    ]
+  },
+  "errores_fp_fn": {
+    "ventanas": [
+      {
+        "ventana": 1,
+        "inicio": "2024-10-10",
+        "n_tickets": 10,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 2,
+        "inicio": "2024-10-17",
+        "n_tickets": 8,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "ventana": 3,
+        "inicio": "2024-10-24",
+        "n_tickets": 7,
+        "n_criticos_t1": 1,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 4,
+        "inicio": "2024-10-31",
+        "n_tickets": 7,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 5,
+        "inicio": "2024-11-07",
+        "n_tickets": 6,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 6,
+        "inicio": "2024-11-14",
+        "n_tickets": 7,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 7,
+        "inicio": "2024-11-21",
+        "n_tickets": 7,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 8,
+        "inicio": "2024-11-28",
+        "n_tickets": 10,
+        "n_criticos_t1": 2,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "ventana": 9,
+        "inicio": "2024-12-05",
+        "n_tickets": 5,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 10,
+        "inicio": "2024-12-12",
+        "n_tickets": 6,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 11,
+        "inicio": "2024-12-19",
+        "n_tickets": 6,
+        "n_criticos_t1": 2,
+        "n_nivel3": 2,
+        "nivel3_capturados_top5": 1,
+        "recall_ventana": 0.5,
+        "top5_niveles_reales": [
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 12,
+        "inicio": "2024-12-26",
+        "n_tickets": 5,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 13,
+        "inicio": "2025-01-02",
+        "n_tickets": 7,
+        "n_criticos_t1": 1,
+        "n_nivel3": 1,
+        "nivel3_capturados_top5": 1,
+        "recall_ventana": 1.0,
+        "top5_niveles_reales": [
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 14,
+        "inicio": "2025-01-09",
+        "n_tickets": 5,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "ventana": 15,
+        "inicio": "2025-01-16",
+        "n_tickets": 9,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 16,
+        "inicio": "2025-01-23",
+        "n_tickets": 6,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 17,
+        "inicio": "2025-01-30",
+        "n_tickets": 9,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 18,
+        "inicio": "2025-02-06",
+        "n_tickets": 6,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 19,
+        "inicio": "2025-02-13",
+        "n_tickets": 7,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 20,
+        "inicio": "2025-02-20",
+        "n_tickets": 6,
+        "n_criticos_t1": 1,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 21,
+        "inicio": "2025-02-27",
+        "n_tickets": 1,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0
+        ]
+      },
+      {
+        "ventana": 22,
+        "inicio": "2025-03-06",
+        "n_tickets": 1,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0
+        ]
+      },
+      {
+        "ventana": 23,
+        "inicio": "2025-03-13",
+        "n_tickets": 3,
+        "n_criticos_t1": 2,
+        "n_nivel3": 2,
+        "nivel3_capturados_top5": 2,
+        "recall_ventana": 1.0,
+        "top5_niveles_reales": [
+          3,
+          3,
+          0
+        ]
+      },
+      {
+        "ventana": 24,
+        "inicio": "2025-03-27",
+        "n_tickets": 2,
+        "n_criticos_t1": 1,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          2,
+          0
+        ]
+      },
+      {
+        "ventana": 25,
+        "inicio": "2025-04-03",
+        "n_tickets": 4,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 26,
+        "inicio": "2025-04-10",
+        "n_tickets": 5,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 27,
+        "inicio": "2025-04-24",
+        "n_tickets": 7,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 28,
+        "inicio": "2025-05-01",
+        "n_tickets": 3,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "ventana": 29,
+        "inicio": "2025-05-08",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          1,
+          1
+        ]
+      },
+      {
+        "ventana": 30,
+        "inicio": "2025-05-15",
+        "n_tickets": 1,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          1
+        ]
+      },
+      {
+        "ventana": 31,
+        "inicio": "2025-05-22",
+        "n_tickets": 1,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          1
+        ]
+      },
+      {
+        "ventana": 32,
+        "inicio": "2025-05-29",
+        "n_tickets": 3,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 33,
+        "inicio": "2025-06-05",
+        "n_tickets": 3,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 34,
+        "inicio": "2025-06-12",
+        "n_tickets": 5,
+        "n_criticos_t1": 1,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 35,
+        "inicio": "2025-06-19",
+        "n_tickets": 4,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 36,
+        "inicio": "2025-06-26",
+        "n_tickets": 1,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0
+        ]
+      },
+      {
+        "ventana": 37,
+        "inicio": "2025-07-03",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 38,
+        "inicio": "2025-07-10",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 39,
+        "inicio": "2025-07-17",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          1,
+          0
+        ]
+      },
+      {
+        "ventana": 40,
+        "inicio": "2025-07-24",
+        "n_tickets": 1,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0
+        ]
+      },
+      {
+        "ventana": 41,
+        "inicio": "2025-07-31",
+        "n_tickets": 4,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 42,
+        "inicio": "2025-08-07",
+        "n_tickets": 4,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 43,
+        "inicio": "2025-08-14",
+        "n_tickets": 4,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 44,
+        "inicio": "2025-08-21",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 45,
+        "inicio": "2025-08-28",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 46,
+        "inicio": "2025-09-04",
+        "n_tickets": 1,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0
+        ]
+      },
+      {
+        "ventana": 47,
+        "inicio": "2025-09-11",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 48,
+        "inicio": "2025-09-18",
+        "n_tickets": 4,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 49,
+        "inicio": "2025-09-25",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 50,
+        "inicio": "2025-10-02",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 51,
+        "inicio": "2025-10-09",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 52,
+        "inicio": "2025-10-16",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 53,
+        "inicio": "2025-12-11",
+        "n_tickets": 1,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0
+        ]
+      },
+      {
+        "ventana": 54,
+        "inicio": "2025-12-25",
+        "n_tickets": 2,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 55,
+        "inicio": "2026-01-01",
+        "n_tickets": 3,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 56,
+        "inicio": "2026-01-08",
+        "n_tickets": 6,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "ventana": 57,
+        "inicio": "2026-01-15",
+        "n_tickets": 1,
+        "n_criticos_t1": 0,
+        "n_nivel3": 0,
+        "nivel3_capturados_top5": 0,
+        "recall_ventana": null,
+        "top5_niveles_reales": [
+          0
+        ]
+      }
+    ],
+    "criticos_t1": [
+      {
+        "pos_test": 23,
+        "fecha": "2024-10-30",
+        "ventana": 3,
+        "nivel_real": 2,
+        "proba_beto": 0.1216,
+        "rank_en_ventana": 7,
+        "n_tickets_ventana": 7,
+        "in_top5": false,
+        "extracto_sanitizado": "FIBRA TRONCAL_TFB3EA513FA ROTA POR ROEDORES, SE INSTALARA UNA CAJA DE EMPALME PARA DAR CONTINUIDAD A LA <ADDRESS> Y 5 EN TRONCAL_TE789AB9840 - <NODO_1>."
+      },
+      {
+        "pos_test": 57,
+        "fecha": "2024-12-02",
+        "ventana": 8,
+        "nivel_real": 2,
+        "proba_beto": 0.1216,
+        "rank_en_ventana": 8,
+        "n_tickets_ventana": 10,
+        "in_top5": false,
+        "extracto_sanitizado": "<ADDRESS>_006. NO CUENTA CON POTENCIA. LIM-0017 <NODO_1> CTO_C0009"
+      },
+      {
+        "pos_test": 58,
+        "fecha": "2024-12-02",
+        "ventana": 8,
+        "nivel_real": 2,
+        "proba_beto": 0.4211,
+        "rank_en_ventana": 5,
+        "n_tickets_ventana": 10,
+        "in_top5": true
+      },
+      {
+        "pos_test": 75,
+        "fecha": "2024-12-21",
+        "ventana": 11,
+        "nivel_real": 3,
+        "proba_beto": 0.4211,
+        "rank_en_ventana": 1,
+        "n_tickets_ventana": 6,
+        "in_top5": true
+      },
+      {
+        "pos_test": 78,
+        "fecha": "2024-12-24",
+        "ventana": 11,
+        "nivel_real": 3,
+        "proba_beto": 0.4211,
+        "rank_en_ventana": 6,
+        "n_tickets_ventana": 6,
+        "in_top5": false,
+        "extracto_sanitizado": "CORTE DE ENERGIA MASIVO"
+      },
+      {
+        "pos_test": 85,
+        "fecha": "2025-01-04",
+        "ventana": 13,
+        "nivel_real": 3,
+        "proba_beto": 0.4211,
+        "rank_en_ventana": 1,
+        "n_tickets_ventana": 7,
+        "in_top5": true
+      },
+      {
+        "pos_test": 137,
+        "fecha": "2025-02-27",
+        "ventana": 20,
+        "nivel_real": 2,
+        "proba_beto": 0.4211,
+        "rank_en_ventana": 3,
+        "n_tickets_ventana": 6,
+        "in_top5": true
+      },
+      {
+        "pos_test": 141,
+        "fecha": "2025-03-17",
+        "ventana": 23,
+        "nivel_real": 3,
+        "proba_beto": 0.4211,
+        "rank_en_ventana": 2,
+        "n_tickets_ventana": 3,
+        "in_top5": true
+      },
+      {
+        "pos_test": 142,
+        "fecha": "2025-03-18",
+        "ventana": 23,
+        "nivel_real": 3,
+        "proba_beto": 0.4211,
+        "rank_en_ventana": 1,
+        "n_tickets_ventana": 3,
+        "in_top5": true
+      },
+      {
+        "pos_test": 144,
+        "fecha": "2025-04-02",
+        "ventana": 24,
+        "nivel_real": 2,
+        "proba_beto": 0.2791,
+        "rank_en_ventana": 1,
+        "n_tickets_ventana": 2,
+        "in_top5": true
+      },
+      {
+        "pos_test": 178,
+        "fecha": "2025-06-16",
+        "ventana": 34,
+        "nivel_real": 2,
+        "proba_beto": 0.0811,
+        "rank_en_ventana": 2,
+        "n_tickets_ventana": 5,
+        "in_top5": true
+      }
+    ],
+    "contabilidad_recall5": {
+      "tickets_nivel3_en_test": 5,
+      "ventanas_con_nivel3": 3,
+      "recalls_por_ventana": [
+        0.5,
+        1.0,
+        1.0
+      ],
+      "recall_agregado_promedio": 0.8333,
+      "definicion": "recall@5 del producto = PROMEDIO de (capturados/presentes) sobre ventanas disjuntas de 7 días con >=1 nivel-3; no es un cociente global de tickets"
+    },
+    "fn_ranking": [
+      {
+        "pos_test": 23,
+        "fecha": "2024-10-30",
+        "ventana": 3,
+        "nivel_real": 2,
+        "proba_beto": 0.1216,
+        "rank_en_ventana": 7,
+        "n_tickets_ventana": 7,
+        "in_top5": false,
+        "extracto_sanitizado": "FIBRA TRONCAL_TFB3EA513FA ROTA POR ROEDORES, SE INSTALARA UNA CAJA DE EMPALME PARA DAR CONTINUIDAD A LA <ADDRESS> Y 5 EN TRONCAL_TE789AB9840 - <NODO_1>."
+      },
+      {
+        "pos_test": 57,
+        "fecha": "2024-12-02",
+        "ventana": 8,
+        "nivel_real": 2,
+        "proba_beto": 0.1216,
+        "rank_en_ventana": 8,
+        "n_tickets_ventana": 10,
+        "in_top5": false,
+        "extracto_sanitizado": "<ADDRESS>_006. NO CUENTA CON POTENCIA. LIM-0017 <NODO_1> CTO_C0009"
+      },
+      {
+        "pos_test": 78,
+        "fecha": "2024-12-24",
+        "ventana": 11,
+        "nivel_real": 3,
+        "proba_beto": 0.4211,
+        "rank_en_ventana": 6,
+        "n_tickets_ventana": 6,
+        "in_top5": false,
+        "extracto_sanitizado": "CORTE DE ENERGIA MASIVO"
+      }
+    ],
+    "resumen": {
+      "criticos_t1_total": 11,
+      "criticos_en_top5_de_su_ventana": 8
+    }
+  },
+  "scorer": {
+    "min_precision": 0.15,
+    "threshold_oof": 0.0,
+    "flag": "precision_floor_alcanzado",
+    "procedencia": "El piso de precisión 0,15 es una ELECCIÓN OPERATIVA declarada (comprometida en deck S20), no derivada de datos: fija cuánta falsa alarma tolera el NOC por crítico capturado (~1 de cada 6,7 alertas útil). Auditoría de constantes: reports/procedencia_parametros.md. El umbral se fija SIEMPRE sobre OOF del train, nunca sobre test (lección del τ-HITL leaked del canon viejo)."
+  },
+  "saturacion": {
+    "checkpoint_beto_vs_dummy": {
+      "ndcg_beto": 0.6585,
+      "ndcg_dummy": 0.6151,
+      "delta_mean": 0.0782,
+      "delta_ic95": [
+        -0.0241,
+        0.181
+      ],
+      "delta_ic_excluye_0": false,
+      "p_unilateral_beto_mejor": 0.074,
+      "n_boot": 2000
+    },
+    "veredicto_producto": "NDCG producto NO supera el baseline de forma robusta (IC incluye 0) → saturación; el ranking operativo NO se valida al nivel del producto",
+    "fuente": "outputs/afg3_producto_v3clean.json",
+    "sha256_fuente": "1b288da9db916aaf83e402ea044922198d5b3f1947c2293b089b03b6b5f0d8c9"
+  },
+  "drift": {
+    "psi_n_tokens": 0.6944,
+    "psi_distrito": 0.89,
+    "prevalencia_train": 0.2232,
+    "prevalencia_test": 0.0466,
+    "lectura": "el drift del target (22,3% -> 4,7%) es INTENCIONAL del split temporal (deck S18); el PSI mide si además driftan los INSUMOS del modelo",
+    "escala": "<0,10 estable · 0,10-0,25 moderado · >0,25 fuerte"
+  },
+  "paridad_producto": {
+    "ndcg": 0.6585,
+    "recall": 0.8333,
+    "vs_json": [
+      0.6585,
+      0.8333
+    ]
+  }
+}

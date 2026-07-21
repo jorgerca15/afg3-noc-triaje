@@ -1,0 +1,65 @@
+{
+  "fase": "AFG III · rebuild — producto NDCG@5 v3clean (checkpoint del ranking)",
+  "t2": "RF multiclase sobre features LIMPIAS (NUM+Distrito), split 345/236 — común a todos los T1",
+  "baseline_ndcg_dummy": 0.6151,
+  "productos": {
+    "rf_estructural": {
+      "modelo": "N1 RF estructural",
+      "auc_pr": 0.0713,
+      "ndcg5_pf": 0.6114,
+      "recall5_pf": 0.5,
+      "n_pos_pred": 236,
+      "thr": 0.0,
+      "n_ventanas_validas": 22
+    },
+    "tfidf_lr": {
+      "modelo": "N2 TF-IDF + LR",
+      "auc_pr": 0.1662,
+      "ndcg5_pf": 0.6951,
+      "recall5_pf": 0.8333,
+      "n_pos_pred": 236,
+      "thr": 0.0,
+      "n_ventanas_validas": 22
+    },
+    "emb_beto_meanpool_lr": {
+      "modelo": "N3 beto_meanpool + LR",
+      "auc_pr": 0.4275,
+      "ndcg5_pf": 0.6585,
+      "recall5_pf": 0.8333,
+      "n_pos_pred": 236,
+      "thr": 0.0,
+      "n_ventanas_validas": 22
+    },
+    "emb_e5_multilingual_lr": {
+      "modelo": "N3 e5_multilingual + LR",
+      "auc_pr": 0.2507,
+      "ndcg5_pf": 0.6159,
+      "recall5_pf": 0.8333,
+      "n_pos_pred": 236,
+      "thr": 0.0,
+      "n_ventanas_validas": 22
+    },
+    "emb_minilm_multilingual_lr": {
+      "modelo": "N3 minilm_multilingual + LR",
+      "auc_pr": 0.1955,
+      "ndcg5_pf": 0.6949,
+      "recall5_pf": 0.8333,
+      "n_pos_pred": 236,
+      "thr": 0.0,
+      "n_ventanas_validas": 22
+    }
+  },
+  "checkpoint_beto_vs_dummy": {
+    "ndcg_beto": 0.6585,
+    "ndcg_dummy": 0.6151,
+    "delta_mean": 0.0782,
+    "delta_ic95": [
+      -0.0241,
+      0.181
+    ],
+    "delta_ic_excluye_0": false,
+    "p_unilateral_beto_mejor": 0.074,
+    "n_boot": 2000
+  },
+  "veredicto": "NDCG producto NO supera el baseline de forma robusta (IC incluye 0) → saturación; el ranking operativo NO se valida al nivel del producto"
+}
