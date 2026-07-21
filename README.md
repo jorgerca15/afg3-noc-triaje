@@ -42,6 +42,28 @@ La conclusión es robusta: **la señal estructural es prácticamente inerte** (s
 intervalo de confianza incluye el piso de prevalencia), mientras que **la semántica de
 la descripción sí discrimina la criticidad** por encima del azar.
 
+El **mismo patrón se repite en el eje de urgencia** (T2, tipo de trabajo), medido con
+**F1 macro** sobre las cuatro clases:
+
+| Señal en `t = 0`                          | Discriminación (F1 macro) |
+|-------------------------------------------|:-------------------------:|
+| Clasificador trivial (clase mayoritaria)  | 0,131                     |
+| Estructural (Random Forest)               | 0,242                     |
+| Texto — MiniLM multilingüe                | 0,402                     |
+| Texto — BETO (BERT en español)            | 0,428                     |
+| Texto — e5 multilingüe                    | 0,439                     |
+| Texto — TF-IDF                            | 0,464                     |
+
+También en la urgencia el texto casi **duplica** al nivel estructural, y la mejora es
+sólida: el intervalo de confianza estructural (`[0,195, 0,292]`) no se solapa con el del
+texto (`[0,420, 0,506]`). En términos operativos, la detección de **Emergencia** —la
+clase que define el nivel máximo de prioridad— sube de un **recall de 0,567** con la vía
+estructural a **0,733–0,833** con el texto. Dentro de la familia semántica los
+codificadores son estadísticamente indistinguibles (sus intervalos se solapan), por lo
+que no se afirma un mejor codificador de urgencia; en el producto se usa BETO en ambos
+ejes por consistencia con la severidad. Que el texto gobierne **los dos ejes** es lo que
+habilita el producto combinado.
+
 El **producto full-semántico** (T1 y T2 leídos ambos del texto con BETO) alcanza:
 
 - **NDCG@5 = 0,874**
