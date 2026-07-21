@@ -97,7 +97,7 @@ afg3-noc-triaje/
 ## Sobre los datos
 
 El dataset de tickets se distribuye **pseudonimizado**: los identificadores de cliente,
-distrito, nodo y ticket se sustituyen por tokens categóricos estériles
+distrito, nodo y ticket se sustituyen por tokens categóricos anonimizados
 (`<CLIENT_XX>`, `DIST_XXX`, `TCK_XXXXXXXXXX`) antes de versionarse. No contiene
 información personal ni identificable. El repositorio incluye además una capa de
 gobernanza de PII para el texto libre, pensada como filtro de entrada para un
