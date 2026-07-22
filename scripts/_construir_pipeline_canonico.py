@@ -129,12 +129,12 @@ y_test = df_test["target_criticidad"].astype(int).to_numpy()
 
 # --- Artefactos JSON canonicos (el visor los LEE; no re-entrena nada) ---
 OUT = ROOT / "outputs"
-ESC = json.load(open(OUT / "afg3_escalera_v3clean.json"))          # escalera T1 (AUC-PR + calibracion)
-ESC_T2 = json.load(open(OUT / "afg3_escalera_t2.json"))            # escalera T2 (F1 macro)
-PRODSEM = json.load(open(OUT / "afg3_producto_t2semantico.json"))  # producto full-semantico (reportado)
-ERR = json.load(open(OUT / "afg3_errores_potencia_t2semantico.json"))  # errores + potencia
-VAL = json.load(open(OUT / "afg3_validacion_v3clean.json"))        # permutacion, anti-circ, drift, scorer
-TORM = json.load(open(OUT / "afg3_benchmark_tormenta.json"))       # latencia bajo carga
+ESC = json.load(open(OUT / "afg3_escalera_v3clean.json", encoding="utf-8"))              # escalera T1 (AUC-PR + calibracion)
+ESC_T2 = json.load(open(OUT / "afg3_escalera_t2.json", encoding="utf-8"))                # escalera T2 (F1 macro)
+PRODSEM = json.load(open(OUT / "afg3_producto_t2semantico.json", encoding="utf-8"))      # producto full-semantico (reportado)
+ERR = json.load(open(OUT / "afg3_errores_potencia_t2semantico.json", encoding="utf-8"))  # errores + potencia
+VAL = json.load(open(OUT / "afg3_validacion_v3clean.json", encoding="utf-8"))            # permutacion, anti-circ, drift, scorer
+TORM = json.load(open(OUT / "afg3_benchmark_tormenta.json", encoding="utf-8"))           # latencia bajo carga
 piso = ESC["piso_prevalencia"]
 
 # Paleta accesible
@@ -679,7 +679,7 @@ for nombre, r in TORM["resultados"].items():
 print("-> el modelo responde en decenas de ms por ticket, dos ordenes por debajo del piso de 2s.")"""),
 
     code("""# AUTOCHEQUEO de reproducibilidad: recomputar SHA256 de los artefactos canonicos y comparar al manifest.
-manifest = json.load(open(OUT / "manifest_v3clean.json"))
+manifest = json.load(open(OUT / "manifest_v3clean.json", encoding="utf-8"))
 canon = manifest["CANON_V3CLEAN"]
 registrados = {**canon.get("inputs", {}), **canon.get("outputs", {})}
 verificados, faltantes, mismatches = 0, [], []

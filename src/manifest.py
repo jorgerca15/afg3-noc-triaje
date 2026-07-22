@@ -70,7 +70,7 @@ def registrar_artefactos(
     """
     data = {}
     if os.path.exists(ruta_manifest):
-        with open(ruta_manifest, "r") as f:
+        with open(ruta_manifest, "r", encoding="utf-8") as f:
             data = json.load(f)
 
     data[paso] = {
@@ -79,7 +79,7 @@ def registrar_artefactos(
     }
 
     Path(ruta_manifest).parent.mkdir(parents=True, exist_ok=True)
-    with open(ruta_manifest, "w") as f:
+    with open(ruta_manifest, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
 
 
@@ -112,7 +112,7 @@ def verificar_integridad(
             f"No existe el manifiesto global ({ruta_manifest}). "
             f"Ejecuta la cadena desde el inicio (T20a)."
         )
-    with open(ruta_manifest, "r") as f:
+    with open(ruta_manifest, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     # Determinar qué pasos consultar
